@@ -1,0 +1,246 @@
+@import url('https://fonts.google.com/specimen/Inconsolata');
+
+body {
+    font-family: 'Inconsolata', monospace;
+    margin: 0;
+    padding: 20px;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 100%);
+    background-image:
+        url("assets/images/pattern-lines.svg"),
+        url("assets/images/pattern-squiggly-line-top.svg"),
+        url("assets/images/pattern-circle.svg"),
+        url("assets/images/pattern-squiggly-line-bottom-desktop.svg"),
+        url("assets/images/background-desktop.png");
+    background-position: top center, top right, center right, bottom left, center;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-attachment: fixed;
+    min-height: 97vh;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 60px;
+    max-width: 100%;
+    height: auto;
+}
+
+.title-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.title-container h1 {
+    font-size: 36px;
+    color: hsl(0, 0%, 100%);
+    background: linear-gradient(90deg, hsl(0, 0%, 100%), hsl(0, 0%, 100%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container {
+    max-width: 600px;
+    width: 24%;
+    margin: 0 auto;
+    background: hsla(252, 6%, 83%, 0);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px; /* Largura máxima para tablet */
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 800px; /* Largura máxima para desktop */
+    }
+}
+
+.invisible {
+    display: none; /* Classe para ocultar o container */
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.upload-icon {
+    width: 36px; /* Ajuste o tamanho conforme necessário */
+    height: 36px; /* Ajuste o tamanho conforme necessário */
+    margin-right: 8px; /* Espaço entre a imagem e o texto */
+    border: 1px solid hsl(245, 15%, 58%); /* Borda tracejada */
+    border-radius: 7px; /* Bordas arredondadas */
+    background: hsla(252, 6%, 83%, 0.041); /* Cor sólida */
+}
+
+.uploadavatar{
+    font-size: 15px;
+}
+
+/* Media queries para responsividade */
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px; /* Largura para tablet */
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1440px; /* Largura para desktop */
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: hsl(0, 0%, 100%);
+}
+
+h2 {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: hsla(0, 0%, 100%, 0.616);
+
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 20px;
+}
+
+.upload-container {
+    border: 2px dashed hsl(245, 15%, 58%);
+    border-radius: 4px;
+    padding: 5%;
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: hsla(0, 0%, 100%, 0.075);
+    color: hsl(245, 19%, 35%);
+    display: block;
+    width: 95%;
+}
+
+.upload-container label {
+    display: block; /* Faz o label ocupar toda a largura */
+    margin-bottom: 5px; /* Espaçamento abaixo do label */
+}
+
+.upload-container input[type="file"] {
+    display: block; /* Faz o input ocupar toda a largura */
+    margin: 0 auto; /* Centraliza o input */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.upload-info {
+    display: flex; /* Usar flexbox para alinhar o ícone e o texto */
+    align-items: center; /* Alinha verticalmente o ícone e o texto */
+    margin-top: 5px; /* Espaçamento acima do texto informativo */
+}
+
+.info-icon {
+    width: 16px; /* Largura do ícone */
+    height: 16px; /* Altura do ícone */
+    margin-right: 5px; /* Espaçamento à direita do ícone */
+}
+
+.info-text {
+    color: gray; /* Cor do texto */
+    font-size: 12px; /* Tamanho da fonte do texto */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid hsl(245, 15%, 58%); /* Cor da borda para campos de texto */
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: hsla(0, 0%, 100%, 0.075); /* Cor de fundo branca */
+    color: hsl(245, 19%, 35%); /* Cor do texto */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus {
+    border-color: hsl(7, 88%, 67%); /* Cor da borda ao focar */
+    outline: none; /* Remover o contorno padrão */
+}
+
+button.generate-ticket {
+    width: 103.5%;
+    padding: 10px;
+    margin-top: 10px; /* Margem superior para separar do último campo de texto */
+    border: 2px solid hsla(7, 88%, 67%, 0); /* Cor da borda específica para o botão de gerar ticket */
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: hsl(7, 88%, 67%); /* Cor de fundo do botão */
+    color: hsl(288, 100%, 13%); /* Cor do texto do botão */
+    font-weight: bold;
+    font-family:'Inconsolata', monospace;
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    opacity: 1; /* Garantir que a opacidade seja 1 (totalmente opaco) */
+}
+
+button.generate-ticket:hover,
+button.generate-ticket:focus {
+    background-color: hsl(7, 71%, 60%); /* Cor de fundo ao passar o mouse ou focar */
+}
+.error {
+    color: hsl(248, 70%, 10%);
+    font-size: 0.9em;
+}
+
+.hint {
+    font-size: 0.8em;
+    color: hsl(0, 0%, 100%);
+}
+
+.ticket {
+    position: relative; /* Permite que os elementos filhos sejam posicionados em relação a este contêiner */
+    margin-top: 20px;
+}
+
+.ticket-image {
+    width: 100%; /* Ajusta a imagem do ticket para caber no container */
+}
+
+.ticket-info {
+    position: absolute; /* Permite que as informações sejam posicionadas sobre a imagem */
+    top: 20%; /* Ajuste conforme necessário */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    color: white; /* Cor do texto */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para melhor legibilidade */
+    //text-align: center; /* Centraliza o texto */
+}
+
+.avatar {
+    max-width: 60px; /* Ajuste a largura máxima da imagem do avatar */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 90%; /* Mantém a imagem em formato circular */
+    transform: translateX(-170%);
+    //transform: translateY(150%);
+}
+
+.highlight-name {
+    color:hsl(7, 86%, 67%) to hsl(0, 0%, 100%); /* Cor para o nome */
+    font-weight: bold; /* Negrito para o nome */
+}
+
+.highlight-email {
+    color: hsl(7, 71%, 60%); /* Cor para o e-mail */
+    font-style: italic; /* Itálico para o e-mail */
+}

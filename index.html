@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Ticket Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="assets/images/logo-full.svg" alt="Logo" class="logo" />
+    <div class="title-container">
+        <h1 id="mainTitle">Your Journey to Coding Conf 2025 Starts Here!</h1>
+        <h2 id="subTitle" class="visually-hidden">Secure your spot at next year's biggest coding conference.</h2>
+    </div>
+    <div class="container">
+        <form id="ticketForm" aria-labelledby="formTitle">
+            <p class="uploadavatar">Upload your avatar</p>
+            <div class="upload-container">
+                <label for="avatar" class="file-upload">
+                    <img src="assets/images/icon-upload.svg" alt="Upload Avatar" class="upload-icon" />
+                </label>
+                <input type="file" id="avatar" accept="image/*" required aria-describedby="avatarHint" style="display: none;">
+                <small id="avatarHint" class="hint">Drag and drop or click to upload</small>
+                <span class="error" id="avatarError" aria-live="assertive"></span>
+            </div>
+            <div class="upload-info">
+                <img src="assets/images/icon-info.svg" alt="Info Icon" class="info-icon" />
+                <small class="info-text">Upload your photo (JPG or PNG, max size: 500KB).</small>
+            </div>
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required aria-describedby="nameHint">
+            <span class="error" id="nameError" aria-live="assertive"></span>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required aria-describedby="emailHint" placeholder="exemple@email.com">
+            <span class="error" id="emailError" aria-live="assertive"></span>
+
+            <label for="github">GitHub Username</label>
+            <input type="text" id="github" required aria-describedby="githubHint" placeholder="@yourusername">
+            <span class="error" id="githubError" aria-live="assertive"></span>
+
+            <button type="submit" class="generate-ticket">Generate My Ticket</button>
+        </form>
+
+        <div id="ticket" class="ticket" style="display: none;">
+            <img src="assets\images\pattern-ticket.svg" alt="Ticket" class="ticket-image" />
+            <img src="assets/images/logo-full.svg" alt="Logo" class="ticket-logo" />
+            <div class="ticket-info">
+                <img id="ticketAvatar" alt="Avatar" class="avatar" />
+                <p id="ticketName"></p>
+               
+                <p id="ticketGithub"></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
