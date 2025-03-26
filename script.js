@@ -55,9 +55,9 @@ document.getElementById('ticketForm').addEventListener('submit', function(event)
        document.getElementById('mainTitle').innerHTML = `Congrats, <span class="highlight-name">${name}</span>! Your ticket is ready.`;
        document.getElementById('subTitle').innerHTML = `We've emailed your ticket to <span class="highlight-email">${email}</span> and will send updates in the run up to the event.`;
 
-        document.getElementById('ticketName').textContent = `Name: ${name}`;
-       // document.getElementById('ticketEmail').textContent = `Email: ${email}`;
-        document.getElementById('ticketGithub').textContent = `GitHub: ${github}`;
+        document.getElementById('ticketName').textContent = `${name}`;
+        //document.getElementById('ticketEmail').textContent = `Email: ${email}`;
+        document.getElementById('ticketGithub').textContent = `${github}`;
 
         const reader = new FileReader();
         reader.onload = function(e) {
@@ -71,3 +71,7 @@ document.getElementById('ticketForm').addEventListener('submit', function(event)
         document.getElementById('ticketForm').reset();
     }
 });
+
+
+
+
