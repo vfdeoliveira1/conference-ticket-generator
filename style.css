@@ -1,36 +1,61 @@
 @import url('https://fonts.google.com/specimen/Inconsolata');
 
-body {
-    font-family: 'Inconsolata', monospace;
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+    font-family: 'Inconsolata', monospace;
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 100%);
+    background-image: url("assets/images/background-desktop.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     background-image:
         url("assets/images/pattern-lines.svg"),
         url("assets/images/pattern-squiggly-line-top.svg"),
         url("assets/images/pattern-circle.svg"),
         url("assets/images/pattern-squiggly-line-bottom-desktop.svg"),
         url("assets/images/background-desktop.png");
-    background-position: top center, top right, center right, bottom left, center;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: top center, top right, center, bottom left, center;
+    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
     background-attachment: fixed;
-    min-height: 97vh;
+    background-size: auto, auto, auto, auto, cover;
+    min-height: 100vh;
+    height: fit-content;
+
+
+}
+
+header {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
 }
 
 .logo {
-    display: block;
-    margin: 0 auto 60px;
-    max-width: 100%;
-    height: auto;
+    display: flex;
+    width: auto;
+    height: 2rem;
 }
 
 .title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     width: 80%;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
     text-align: center;
-    margin-bottom: 50px;
 }
 
 .title-container h1 {
@@ -42,24 +67,40 @@ body {
 }
 
 .container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
     max-width: 600px;
-    width: 24%;
-    margin: 0 auto;
     background: hsla(252, 6%, 83%, 0);
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
 }
 
-@media (min-width: 768px) {
+.container>form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .title-container {
+        width: 90%;
+    }
+
     .container {
-        max-width: 600px; /* Largura máxima para tablet */
+        width: 90%;
     }
 }
 
-@media (min-width: 1440px) {
+/* Tablet */
+@media (min-width: 500px) and (max-width: 876px) {
+    .title-container {
+        width: 80%;
+    }
+
     .container {
-        max-width: 800px; /* Largura máxima para desktop */
+        width: 70%;
     }
 }
 
@@ -86,18 +127,6 @@ body {
     font-size: 15px;
 }
 
-/* Media queries para responsividade */
-@media (min-width: 768px) {
-    .container {
-        max-width: 600px; /* Largura para tablet */
-    }
-}
-
-@media (min-width: 1440px) {
-    .container {
-        max-width: 1440px; /* Largura para desktop */
-    }
-}
 
 h1 {
     text-align: center;
@@ -119,16 +148,21 @@ label {
     font-size: 20px;
 }
 
+.label-input {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .upload-container {
     border: 2px dashed hsl(245, 15%, 58%);
     border-radius: 4px;
     padding: 5%;
-    margin-bottom: 15px;
     text-align: center;
     background-color: hsla(0, 0%, 100%, 0.075);
     color: hsl(245, 19%, 35%);
     display: block;
-    width: 95%;
+    width: 100%;
 }
 
 .upload-container label {
@@ -146,6 +180,7 @@ label {
     display: flex; /* Usar flexbox para alinhar o ícone e o texto */
     align-items: center; /* Alinha verticalmente o ícone e o texto */
     margin-top: 5px; /* Espaçamento acima do texto informativo */
+    
 }
 
 .info-icon {
@@ -164,12 +199,11 @@ input[type="email"],
 input[type="file"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid hsl(245, 15%, 58%); /* Cor da borda para campos de texto */
     border-radius: 4px;
     font-size: 16px;
     background-color: hsla(0, 0%, 100%, 0.075); /* Cor de fundo branca */
-    color: hsl(245, 19%, 35%); /* Cor do texto */
+    color: hsl(0, 0%, 100%); /* Cor do texto */
 }
 
 input[type="text"]:focus,
@@ -180,7 +214,7 @@ input[type="file"]:focus {
 }
 
 button.generate-ticket {
-    width: 103.5%;
+    width: 100%;
     padding: 10px;
     margin-top: 10px; /* Margem superior para separar do último campo de texto */
     border: 2px solid hsla(7, 88%, 67%, 0); /* Cor da borda específica para o botão de gerar ticket */
@@ -209,86 +243,99 @@ button.generate-ticket:focus {
 }
 
 .ticket {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-image: url("assets/images/pattern-ticket.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     width: 100%; /* ou a largura desejada */
-}
-
-.ticket-image {
-   width: 100%;
-    height: auto;
-    
+    aspect-ratio: 900/420;
+    padding: 1rem;
 }
 
 .ticket-info {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px; /* ajuste conforme necessário */
+    flex-direction: row-reverse;
+    justify-content: start;
     z-index: 1;
-    
 }
 
-.ticket-name{
-    margin: auto;
-    transform: translateY(35px)
-}
-
-.github-icon{
-    margin: auto;
-    transform: translateY(35px)
-}
-
-.github-line{
-    margin: auto;
-    transform: translateX(30px)
+.info-dir {
+    display: flex;
+    align-items: center;
 }
 
 .info-esq {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    font-family: 'Inconsolata', monospace;;
+    width: 90%;
+    height: 100%;
+    font-family: 'Inconsolata', monospace;
+}
+
+.ticket-number {
+    width: fit-content;
+    height: fit-content;
+    rotate: -90deg;
 }
 
 .info-baix {
-    margin-top: auto; /* empurra para baixo */
-    transform: translateY(-30px);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 100%;
+    height: 50%;
 }
 
 .avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 10%;
-    
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
     /* Remova as transformações */
 }
+
 .info-baix-esq{
-    margin-top: auto;
-    transform: translateY(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 4rem;
 }
 
 .info-baix-dir{
-    margin-top: -80px;
-    transform: translateX(80px);
-    font-size: 13px;
-    
+    display: flex;
+    width: 100%;
+    height: 4rem;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem;
 }
 .info-cim{
-    transform: translateY(-55px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 50%;
 }
 
 .austin-tx{
-    margin-top: 1px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: smaller;
+    text-align: left;
 }
 
 .highlight-name {
-    color:hsl(7, 86%, 67%) to hsl(0, 0%, 100%); /* Cor para o nome */
-    font-weight: bold; /* Negrito para o nome */
+    background: linear-gradient(90deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: bold;
 }
 
 .highlight-email {
@@ -296,22 +343,38 @@ button.generate-ticket:focus {
     font-style: italic; /* Itálico para o e-mail */
 }
 
-@media (max-width: 768px) {
-    .info-esq {
-        width: 100%; /* Para telas menores, use 100% */
-    }
-
-    .info-baix {
-        flex-direction: column; /* Mude para coluna em telas menores */
-        align-items: center; /* Centralize os itens */
-    }
-
-    .info-baix-esq, .info-baix-dir {
-        width: 100%; /* Para telas menores, use 100% */
-        margin: 0; /* Remova margens para evitar espaçamento excessivo */
-    }
-
-    .ticket-name, .github-line {
-        text-align: center; /* Centralize o texto */
-    }
+.ticket-logo{
+    width: auto;
+    height: 1.5rem;
 }
+/* Image preview styles */
+.image-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.image-preview {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 4px;
+    border: 1px solid hsl(245, 15%, 58%);
+}
+
+.change-image-btn {
+    background: none;
+    border: 1px solid hsl(245, 15%, 58%);
+    color: hsl(0, 0%, 100%);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Inconsolata', monospace;
+    font-size: 12px;
+}
+
+.change-image-btn:hover {
+    background-color: hsla(0, 0%, 100%, 0.1);
+}
+
