@@ -16,16 +16,16 @@ body {
     font-family: 'Inconsolata', monospace;
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 100%);
-    background-image: url("assets/images/background-desktop.png");
+    background-image: url("../assets/images/background-desktop.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-image:
-        url("assets/images/pattern-lines.svg"),
-        url("assets/images/pattern-squiggly-line-top.svg"),
-        url("assets/images/pattern-circle.svg"),
-        url("assets/images/pattern-squiggly-line-bottom-desktop.svg"),
-        url("assets/images/background-desktop.png");
+        url("../assets/images/pattern-lines.svg"),
+        url("../assets/images/pattern-squiggly-line-top.svg"),
+        url("../assets/images/pattern-circle.svg"),
+        url("../assets/images/pattern-squiggly-line-bottom-desktop.svg"),
+        url("../assets/images/background-desktop.png");
     background-position: top center, top right, center, bottom left, center;
     background-repeat: repeat, no-repeat, no-repeat, no-repeat;
     background-attachment: fixed;
@@ -245,7 +245,7 @@ button.generate-ticket:focus {
 .ticket {
     display: flex;
     flex-direction: column;
-    background-image: url("assets/images/pattern-ticket.svg");
+    background-image: url("../assets/images/pattern-ticket.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
